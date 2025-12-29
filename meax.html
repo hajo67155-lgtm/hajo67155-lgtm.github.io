@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>mpc-t</title>
+    <style>
+        body {
+            height:1000px;
+        }
+        #top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 38px;
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+        #logo {
+            margin-top:-5px;
+            font-family: "Arial Black", "Montserrat", sans-serif;
+        }
+        #ellipse {
+            margin-top: 0px;
+            margin-left: -66px;
+            width: 80px;
+            height: 30px;
+            border: 2px solid black;
+            border-radius: 50%;
+            background: transparent;
+        }
+        .menus {
+            position: relative;
+            margin-right: 20px;
+        }
+        .menus-button {
+            padding: 10px 15px;
+            background: #999;
+            color: white;
+            cursor: pointer;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #eee;
+            min-width: 150px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color:black;
+            height: 20px;
+        }
+        .dropdown a:hover {
+            background: #ddd;
+        }
+        .menus:hover .dropdown {
+            display: block;
+        }
+        main {
+            margin-top: 80px;
+            padding: 20px;
+        }
+        #box {
+            position: absolute;
+            width: 300px;
+            height: 170px;
+            padding: 20px;
+            border: 1px solid black;
+            background-color: rgb(210, 232, 247);
+            box-sizing: border-box;
+            top:300px;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        #box li {
+            display: flex;
+            justify-content: center;
+        }
+        .t-math {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(195, 191, 191);
+            text-align: center;
+            font-size: 30px;
+            margin-top: 500px;
+        }
+    </style>
+</head>
+<body>
+    <header id="top-header">
+        <a id="logo">mpc-t</a>
+        <a id="ellipse" href="mpc-t"></a>
+        <div class="menus" style="margin-left:20px;">数学
+        <div class="dropdown">
+            <a id="maex">数学について</a>
+            <a id="jhsm">中学数学</a>
+            <a id="m1-A">数1/A</a>
+            <a id="m2-B">数2/B</a>
+            <a id="m3-C">数3/C</a>
+        </div></div>
+        <div class="menus">物理
+        <div class="dropdown">
+        </div></div>
+        <div class="menus">化学
+        <div class="dropdown">
+        </div></div>
+    </header>
+    
+    <ol id="box">
+        <li><a href="">数学の起源</a></li>
+        <li><a href="">現代の数学</a></li>
+        <li><a href="">数学の豆知識</a></li>
+    </ol>
+    <header id="math-origin" class="t-math" style="margin-top:600px;">＜数学の起源＞</header>
+    <div>数学は紀元前から始まり、古代エジプトや古代メソポタミアで主に発展してきました。古代ギリシャでは、
+        ピタゴラスやユークリッド、アルキメデスなどによって数学が大きく発展しました。中世に入ると、インド
+        では「0」という概念が生まれ、現在使われている十進法が採用されることで、現代数学の基礎が築かれま
+        した。近代になると、座標や微分積分、数論や図形など数学の分野が幅広く発展し、同時に物理学や天文学
+        などにも応用されるようになりました。</div>
+    <header id="modern-math" class="t-math">＜現代の数学＞</header>
+    <div>現代の数学は、19世紀後半から現在にかけて大きく発展してきました。この時代の数学の特徴は、計算だけ
+        でなく、考え方や構造そのものを研究する学問へと変化したことです。まず、集合論が生まれ、数学の土台が
+        明確になりました。これにより、「数とは何か」「無限とは何か」といった根本的な問題が研究されるように
+        なりました。また、線形代数や確率・統計が発展し、科学や工学だけでなく、経済や社会の分析にも使われる
+        ようになりました。20世紀後半にはコンピュータが登場し、数学の役割はさらに広がりました。暗号技術やア
+        ルゴリズム、AI（人工知能）などは数学を基礎として成り立っています。さらに、コンピュータを使うことで
+        、これまで解くことが難しかった問題の研究も可能になりました。このように現代の数学は、理論の探究と実
+        社会への応用の両方で発展し続けており、科学技術を支える重要な学問となっています。</div>
+    <header id="math-trivia" class="t-math">＜数学の豆知識集＞</header>
+    <script>
+        document.getElementById("maex").addEventListener("pointerdown", () => {
+            location.href = "meax.html";})
+        document.getElementById("jhsm").addEventListener("pointerdown", () => {
+            location.href = "jhsm.html";})
+        document.getElementById("m1-A").addEventListener("pointerdown", () => {
+            location.href = "m1-A.html";})
+        document.getElementById("m2-B").addEventListener("pointerdown", () => {
+            location.href = "m2-B.html";})
+        document.getElementById("m3-C").addEventListener("pointerdown", () => {
+            location.href = "m3-C.html";})
+        document.getElementById("ellipse").addEventListener("pointerdown", () => {
+            location.href = "mpc-t.html";})
+    </script>
+</body>
+</html>
