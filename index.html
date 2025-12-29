@@ -1,11 +1,144 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>私のサイト</title>
+    <meta charset="UTF-8">
+    <title>mpc-t</title>
+    <style>
+        body {
+            height:1000px;
+        }
+        #top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 38px;
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+        #logo {
+            margin-top:-5px;
+            font-family: "Arial Black", "Montserrat", sans-serif;
+        }
+        #ellipse {
+            margin-top: 0px;
+            margin-left: -66px;
+            width: 80px;
+            height: 30px;
+            border: 2px solid black;
+            border-radius: 50%;
+            background: transparent;
+        }
+        .menus {
+            position: relative;
+            margin-right: 20px;
+        }
+        .menus-button {
+            padding: 10px 15px;
+            background: #999;
+            color: white;
+            cursor: pointer;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #eee;
+            min-width: 150px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color:black;
+            height: 20px;
+        }
+        .dropdown a:hover {
+            background: #ddd;
+        }
+        .menus:hover .dropdown {
+            display: block;
+        }
+        main {
+            margin-top: 80px;
+            padding: 20px;
+        }
+        #box {
+            position: absolute;
+            width: 300px;
+            height: 170px;
+            padding: 20px;
+            border: 1px solid black;
+            background-color: rgb(210, 232, 247);
+            box-sizing: border-box;
+            top:650px;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        #box li {
+          margin-top: 2px;
+          display: flex;
+          justify-content: center;
+        }
+        #No1 {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(195, 191, 191);
+            text-align: center;
+            font-size: 30px;
+            margin-top: 900px;
+        }
+        #No1 div {
+            width: 80%;
+            margin-top: 60px;
+        }
+        #No2 {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(195, 191, 191);
+            text-align: center;
+            font-size: 30px;
+            margin-top: 200px;
+        }
+    </style>
 </head>
 <body>
-  <h1>GitHub Pages 公開成功！</h1>
-  <p>お名前.comの独自ドメイン接続テスト中</p>
+    <header id="top-header">
+        <a id="logo">mpc-t</a>
+        <a id="ellipse" href="mpc-t.html"></a>
+        <div class="menus" style="margin-left:20px;">数学
+        <div class="dropdown">
+            <a id="meax" href="meax.html">数学について</a>
+            <a id="jhsm" href="jhsm.html">中学数学</a>
+            <a id="m1-A" href="m1-A.html">数1/A</a>
+            <a id="m2-B" href="m2-B.html">数2/B</a>
+            <a id="m3-C" href="m3-C.html">数3/C</a>
+        </div></div>
+        <div class="menus">物理
+        <div class="dropdown">
+        </div></div>
+        <div class="menus">化学
+        <div class="dropdown">
+        </div></div>
+    </header>
+
+    <ol id="box">
+        <li><a href="#No1">mpc-tとは</a></li>
+        <li><a href="#No2">mpc-tについて</a></li>
+    </ol>
+    <header id="No1">＜mpc-tとは＞</header>
+    <div>　mpc-tは、Math・Physics・Chemistry・Technologyの頭文字を取った名称であり、数学・物理・化学を基礎とした、将来性のある技術分野の発展を目的として設立されました。
+現代社会、並びにこれからの社会において重要性および必要性が高まる理工系分野の知識を、より多くの人が学べる環境を整えるとともに、専門的な内容であっても理解しやすく伝えることを重視しています。
+また、年齢や経験、経済的な状況に左右されることなく、誰もが平等に学習できるよう、教育コンテンツは無料で提供しています。
+mpc-tは、基礎学問と実践的な応用を結びつけることで、未来の技術者や研究者の成長を支援し、社会全体の技術力向上に貢献することを目指しています。</div>
+    <header id="No2">＜mpc-tについて＞</header>
+    <div>　mpc-tは、誰もが気軽に、かつ平等に数学・物理・化学といった理工系の学問を、基礎から応用、さらには日常生活の中で活用できるレベルまで学習できる環境を提供することを目的として設立されました。数学は、紀元前3000年頃のエジプト文明やメソポタミア文明にその起源を持ち、長い歴史の中で数多くの偉人たちによって発展し、現在の体系的な学問へと進化してきました。
+物理学は古代ギリシャに端を発し、近代においては第一次世界大戦や第二次世界大戦での弾道計算などへの応用を通じて急速に発展し、現代科学の中核を担う分野となっています。
+また、化学は比較的近代に体系化された学問であり、現在もなお新しい技術や理論が生み出され続けています。これらの学問はいずれも、人類が生活する上で必要に迫られ、積み重ねてきた知恵と知識の結晶です。しかし現代社会においては、これらの知識がなくても生活できる環境が整いつつあり、その結果、知識を持つ人と持たない人との間に大きな差が生まれやすい状況となっています。mpc-tは、そのような知識の格差を解消し、誰もが学び続け、成長できる社会を実現するために立ち上げられました。基礎学問と実践的な応用を結びつけることで、理工系分野への理解を深め、個人の可能性を広げるとともに、社会全体の発展に貢献することを目指しています。</div>
 </body>
 </html>
