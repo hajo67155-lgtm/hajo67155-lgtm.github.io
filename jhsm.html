@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <title>mpc-t</title>
     <style>
-        body {
-            height:1000px;
-        }
         #top-header {
             position: fixed;
             top: 0;
@@ -139,6 +136,45 @@
             align-items: center;
             font-size: x-large;
         }
+        #sub {
+            position: sticky;
+            top: 20px;        /* 画面上からの距離 */
+            margin-left: auto; /* 右寄せ */
+            width: 300px;
+            height: 600px;
+            background-color: #ddd;
+        }
+        #problem-setting {
+            background-color: white;
+            border-radius: 8px;
+            width:100px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            font-size: 25px;
+        }
+        .a1 {
+            margin-top: 30px;
+            display:flex;
+        }
+        #count {
+            font-size: x-large;
+            display: flex;
+            margin: auto;
+            gap: 20px;
+        }
+        #count textarea {
+            width: 50px;
+            height: 30px;
+            font-size: 20px;
+        }
+        #make {
+            margin: auto;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
@@ -200,6 +236,14 @@
     <div id="point-name">\(point\)</div>
     <hr style="height: 2px;background-color: black;margin-top: 500px;">
     <header id="jhsm-problem">問題</header>
+    <div id="sub">
+    <div id="problem-setting">設定</div>
+    <div class="a1">
+        <div id="count">問題数<textarea oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="2"></textarea></div></div>
+    <div class="a1">
+        <button id="make" onclick="make()">作成</button>
+    </div></div>
+    <iframe id="pdf-viewer" width="100%" height="600px"></iframe>
 
     <script>
         MathJax = {
@@ -209,15 +253,30 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
         let title = document.getElementById("jhsm-title");
         let point_deta = document.getElementById("point");
+        let count_deta = document.querySelector("#count textarea");
         document.getElementById("1-1").addEventListener("pointerdown", () => {
             title.innerHTML = "正負の数";
             {
             point_deta.innerHTML =  "<p><b>＜正の数・負の数＞</b><br>　・<b>正の数</b> … 0より大きい数を正の数という　 例) \\(2,0.1,\\frac{3}{4}\\)など<br>　・<b>負の数</b> … 0より小さい数を負の数という　 例) \\(-1,-\\frac{1}{5},-0.9\\)など<br>　・<b>整数</b> … 少数や分数以外の数字のこと　例) \\(-5,0,4,12\\)<br>　<b>自然数</b>…0より大きく、少数や分数ではない数字のこと　 例) \\(1,15,100\\)<br><br><b>＜数直線＞</b><br>　・<b>数直線</b>とは右図で示されているもので、0に対応する点を<b>原点</b>という<br>　・ある点から原点までの距離を<b>絶対値</b>という<br><br><b>＜不等号＞</b><br>　・\\(<\\) … 小なり<br>　・\\(>\\) … 大なり<br>　・\\(≦\\) … 小なりイコール<br>　・≧ … 大なりイコール<br><br><b>＜累乗＞</b><br>　・<b>累乗</b> … 同じ数をいくつかかけたもので、次のように表せられる <br>　　例) \\(2\\times2=2^{2}\\) , \\((-2)\\times(-2)=(-2)^{2}\\)<br>　・<b>指数</b> … 累乗の右上にある数字のこと</p>";}
             MathJax.typeset();
         })
+        function make() {
+            const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF();
+
+  pdf.text("こんにちは PDF", 20, 20);
+  pdf.text("これは画面表示用です", 20, 40);
+
+  // Blob URL を作成
+  const pdfBlob = pdf.output("bloburl");
+
+  // iframe に表示
+  document.getElementById("pdf-viewer").src = pdfBlob;
+        }
     </script>
 </body>
 </html>
